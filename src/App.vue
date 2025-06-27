@@ -8,10 +8,9 @@
     <main>
       <SearchBar v-model="searchTerm" @clear="clearSearch" />
 
-      <!-- ใช้ ImageGallery Component ใหม่ของเรา -->
+
       <ImageGallery :images="images" @tag-clicked="handleTagClick" />
 
-      <!-- Loading Indicator & Observer (เหมือนเดิม) -->
       <div ref="observerEl" class="text-center p-5">
         <div v-if="isLoading" class="spinner-border text-primary" role="status">
           <span class="visually-hidden">Loading...</span>
@@ -23,10 +22,9 @@
 </template>
 
 <script setup>
-// Script ทั้งหมดเหมือนกับเวอร์ชันก่อนหน้า ไม่ต้องแก้ไขอะไรเลย!
 import { ref, onMounted, onUnmounted, watch } from 'vue';
 import { fetchImages } from './services/imageService.js';
-import ImageGallery from './components/ImageGallery.vue'; // <-- ใช้ Component ใหม่
+import ImageGallery from './components/ImageGallery.vue';
 import SearchBar from './components/SearchBar.vue';
 
 const images = ref([]);

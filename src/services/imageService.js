@@ -19,7 +19,6 @@ const sampleLayoutData = [
 const generateMockData = () => {
     if (masterData.length > 0) return;
 
-    // ใช้ข้อมูลตัวอย่างก่อน แล้วค่อยสร้างข้อมูลสุ่มเพิ่ม
     sampleLayoutData.forEach((item, index) => {
         masterData.push({
             id: index + 1,
@@ -28,7 +27,6 @@ const generateMockData = () => {
         });
     });
 
-    // สร้างข้อมูลสุ่มเพิ่มเติมเพื่อให้มีข้อมูลพอสำหรับ infinite scroll
     for (let i = masterData.length; i < 200; i++) {
         const height = Math.floor(Math.random() * (600 - 300 + 1)) + 300;
         const randomTags = ['keyword_a', 'keyword_b', 'keyword_c', 'keyword_d', 'keyword_e']
@@ -43,7 +41,6 @@ const generateMockData = () => {
 
 generateMockData();
 
-// ฟังก์ชัน fetchImages (เหมือนเดิม)
 export const fetchImages = async ({ page = 1, limit = 20, searchTerm = '' }) => {
     let filteredData = masterData;
     if (searchTerm) {
